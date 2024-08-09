@@ -1,9 +1,9 @@
-import express from "express";
-import TodoController from "../controllers/todo.controller";
+const TodoServices = {
+  getAll: async () => {},
+  getOne: async () => {},
+  create: async () => {},
+  update: async () => {},
+  delete: async () => {},
+};
 
-export const todoRouter = express.Router();
-todoRouter.get("/", TodoController.handleGetAllTodos);
-todoRouter.get("/:id", TodoController.handleGetSingleTodo);
-todoRouter.post("/", TodoController.handleCreateTodo);
-todoRouter.patch("/:id", TodoController.handleUpdateTodo);
-todoRouter.delete("/:id", TodoController.handleDeleteTodo);
+export default TodoServices;

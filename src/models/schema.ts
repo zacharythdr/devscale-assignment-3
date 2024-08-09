@@ -13,6 +13,7 @@ const authSchema = new Schema({
 
 const todoSchema = new Schema({
   todo: String,
+  userId: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 export const User = model("User", userSchema);

@@ -1,11 +1,24 @@
-import { ITodo } from "../entities/interface";
+import { ITodo, ITodosResponse } from "../entities/interface";
 import TodoRepository from "../repositories/todo.repository";
 
 const TodoServices = {
   getAll: async () => {
     try {
       const allTodos = await TodoRepository.getAll();
-      return allTodos;
+
+      if (!allTodos) {
+        throw new Error("No todos found");
+      }
+
+      console.log(allTodos);
+
+      const transformedTodos = allTodos.map((todo: any) => ({
+        _id: todo._id,
+        todo: todo.todo,
+        userName: todo.userId?.name,
+      }));
+
+      return transformedTodos;
     } catch (error) {
       console.log(`Service Error: ${error}`);
       throw error;

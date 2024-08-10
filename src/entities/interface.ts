@@ -23,5 +23,11 @@ export interface IAuth {
 
 export interface ITodo {
   todo: string;
-  userId: Types.ObjectId;
+  userId: string | Types.ObjectId;
+}
+
+export interface ITodosResponse {
+  _id: string;
+  todo: string;
+  userName: string;
 }

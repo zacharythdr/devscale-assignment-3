@@ -1,0 +1,27 @@
+### Get All Todo
+GET http://localhost:8000/todos
+
+### Get Single Todo
+GET http://localhost:8000/todos/66b70e715330053b6ee0f566
+
+### Create todo
+POST http://localhost:8000/todos
+Content-Type: application/json
+
+{
+    "todo": "Read book",
+    "userId": "66b636424b1aba8d8707df4b"
+}
+
+### Update
+PATCH  http://localhost:8000/todos/
+Content-Type: application/json
+
+{
+    "todo": "Watch movie",
+}
+
+
+### Delete
+DELETE  http://localhost:8080/todos/
+Content-Type: application/json

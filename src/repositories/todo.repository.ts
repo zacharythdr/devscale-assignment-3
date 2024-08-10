@@ -4,7 +4,7 @@ import { Todo } from "../models/schema";
 const TodoRepository = {
   getAll: async () => {
     try {
-      const allTodos = await Todo.find().populate("userId");
+      const allTodos = await Todo.find().populate("userId").exec();
       return allTodos;
     } catch (error) {
       console.log(`Repository Error: ${error}`);

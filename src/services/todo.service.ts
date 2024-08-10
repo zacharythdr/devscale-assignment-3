@@ -8,6 +8,7 @@ const TodoServices = {
       return allTodos;
     } catch (error) {
       console.log(`Service Error: ${error}`);
+      throw error;
     }
   },
   getOne: async (id: string) => {
@@ -16,6 +17,7 @@ const TodoServices = {
       return singleTodo;
     } catch (error) {
       console.log(`Service Error: ${error}`);
+      throw error;
     }
   },
   create: async (newTodo: ITodo) => {
@@ -46,6 +48,7 @@ const TodoServices = {
       return await TodoRepository.delete(id);
     } catch (error) {
       console.log(`Service Error: ${error}`);
+      throw error;
     }
   },
 };

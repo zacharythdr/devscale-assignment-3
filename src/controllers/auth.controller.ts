@@ -11,9 +11,7 @@ const AuthController = {
         .json({ message: "Register Success", data: { name, email } });
     } catch (error: any) {
       console.error("Error during registration:", error);
-
       const statusCode = error.message.includes("required") ? 400 : 500;
-
       return res.status(statusCode).json({ message: error.message });
     }
   },

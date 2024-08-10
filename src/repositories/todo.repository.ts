@@ -36,7 +36,7 @@ const TodoRepository = {
   },
   delete: async (id: string) => {
     try {
-      await Todo.findByIdAndDelete(id);
+      return await Todo.findByIdAndDelete(id);
     } catch (error) {
       console.log(`Repository Error: ${error}`);
     }

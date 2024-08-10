@@ -14,14 +14,13 @@ Content-Type: application/json
 }
 
 ### Update
-PATCH  http://localhost:8000/todos/
+PATCH  http://localhost:8000/todos/66b70e715330053b6ee0f566
 Content-Type: application/json
 
 {
-    "todo": "Watch movie",
+    "todo": "Watch movie"
 }
 
-
 ### Delete
-DELETE  http://localhost:8080/todos/
-Content-Type: application/json
+DELETE  http://localhost:8000/todos/66b70ef932a40c2bc18c3263
+

@@ -35,9 +35,8 @@ const TodoController = {
   },
   handleUpdateTodo: async (req: Request, res: Response) => {
     try {
-      const { todo } = req.body;
       const todoId = req.params.id;
-      const updateTodo = await TodoServices.update(todoId, todo);
+      const updateTodo = await TodoServices.update(todoId, req.body);
       return res
         .status(200)
         .json({ message: "Update Todo Success", data: updateTodo });
@@ -48,11 +47,15 @@ const TodoController = {
   },
   handleDeleteTodo: async (req: Request, res: Response) => {
     try {
+      console.log("test dleete");
+
       const todoId = req.params.id;
+      console.log(todoId);
+
       const deleteTodo = await TodoServices.delete(todoId);
       return res
         .status(200)
-        .json({ message: "Delete Todo Success", data: deleteTodo });
+        .json({ message: "Delete Todo Success", deletedData: deleteTodo });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: error });

@@ -29,6 +29,7 @@ const TodoRepository = {
   update: async (id: string, todo: ITodo) => {
     try {
       const updateTodo = await Todo.findByIdAndUpdate(id, todo);
+      console.log(updateTodo);
       return updateTodo;
     } catch (error) {
       console.log(`Repository Error: ${error}`);
@@ -36,6 +37,7 @@ const TodoRepository = {
   },
   delete: async (id: string) => {
     try {
+      
       return await Todo.findByIdAndDelete(id);
     } catch (error) {
       console.log(`Repository Error: ${error}`);

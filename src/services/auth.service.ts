@@ -35,7 +35,21 @@ const AuthServices = {
       throw error;
     }
   },
-  logout: async () => {},
+  getAuth: async (refreshToken: string) => {
+    try {
+      const auth = await AuthRepository.getAuth(refreshToken);
+      return auth;
+    } catch (error) {
+      console.log(`Service error: ${error}`);
+    }
+  },
+  logout: async (refreshToken: string) => {
+    try {
+      await AuthRepository.logout(refreshToken);
+    } catch (error) {
+      console.log(`Service error: ${error}`);
+    }
+  },
 };
 
 export default AuthServices;

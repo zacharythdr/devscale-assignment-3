@@ -79,7 +79,21 @@ const AuthRepository = {
       console.log("Can't register");
     }
   },
-  logout: async () => {},
+  getAuth: async (refreshToken: string) => {
+    try {
+      const auth = await Auth.findOne({ refreshToken });
+      return auth;
+    } catch (error) {
+      console.log(`Repository error: ${error}`);
+    }
+  },
+  logout: async (refreshToken: string) => {
+    try {
+      await Auth.deleteOne({ refreshToken });
+    } catch (error) {
+      console.log(`Repository error: ${error}`);
+    }
+  },
 };
 
 export default AuthRepository;

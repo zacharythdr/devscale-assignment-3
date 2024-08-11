@@ -12,6 +12,8 @@ const AuthServices = {
       if (password.length < 8) {
         throw new Error("Password must be minimum 8 characters!");
       }
+
+      
       const login = await AuthRepository.login(loginInfo);
       return login;
     } catch (error) {

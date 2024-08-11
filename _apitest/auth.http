@@ -20,3 +20,7 @@ Content-Type: application/json
     "email": "dani@devscale.id",
     "password": "cemangatcelalu"
 }
+
+### User Logout
+POST http://localhost:8000/logout
+

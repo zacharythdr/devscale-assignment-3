@@ -6,8 +6,8 @@ POST http://localhost:8000/register
 Content-Type: application/json
 
 {
-    "name": "Dani Satria",
-    "email": "dani@devscale.id",
+    "name": "Taylor Swift",
+    "email": "taylor@devscale.id",
     "password": "cemangatcelalu"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "email": "dani@devscale.id",
+    "email": "taylor@devscale.id",
     "password": "cemangatcelalu"
 }
 

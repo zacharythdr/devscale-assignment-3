@@ -10,22 +10,28 @@ export const authorization = async (
   const { accessToken, refreshToken } = req.cookies;
 
   if (!accessToken || !refreshToken) {
+    console.log("gaada akses atau refresh token!");
+
     return res.status(401).json({ message: "Unauthorized, Login required!" });
   }
 
   if (accessToken) {
     try {
-      jwt.verify(accessToken, process.env.JWT_ACCESS_KEY as string);
+      jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET as string);
     } catch (error) {
       if (!refreshToken) {
+        console.log("refresh token ga valid!");
+
         return res.status(401).json({ message: "Unauthorized" });
       }
 
       try {
-        jwt.verify(refreshToken, process.env.JWT_REFRESH_KEY as string);
+        jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET as string);
         const validRefTok = await AuthServices.getAuth(refreshToken);
 
         if (!validRefTok) {
+          console.log("reftok ga valid");
+
           return res.status(401).json({ message: "Unauthorized" });
         }
 
@@ -48,6 +54,8 @@ export const authorization = async (
         // set to cookie
         return res.cookie("accessToken", newAccessToken, { httpOnly: true });
       } catch (error) {
+        console.log(error);
+
         return res.status(401).json({ message: "Unauthorized" });
       }
     }

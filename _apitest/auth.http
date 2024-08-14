@@ -1,26 +1,30 @@
 ###
 GET http://localhost:8000/
+# GET http://103.52.114.174:8000/
 
 ###
 POST http://localhost:8000/register
+#POST http://103.52.114.174:8000/register
 Content-Type: application/json
 
 {
-    "name": "Taylor Swift",
-    "email": "taylor@devscale.id",
+    "name": "Niki",
+    "email": "niki@devscale.id",
     "password": "cemangatcelalu"
 }
 
 
 ### Login User
-POST http://localhost:8000/login
+ POST http://localhost:8000/login
+#POST http://103.52.114.174:8000/login
 Content-Type: application/json
 
 {
-    "email": "taylor@devscale.id",
+    "email": "niki@devscale.id",
     "password": "cemangatcelalu"
 }
 
 ### User Logout
-POST http://localhost:8000/logout
+#POST http://localhost:8000/logout
+POST http://103.52.114.174:8000/logout
 

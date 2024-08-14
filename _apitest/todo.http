@@ -1,6 +1,6 @@
 ### Get All Todo
-GET http://localhost:8000/todos
-#GET http://103.52.114.174:8000/todos
+#GET http://localhost:8000/todos
+GET http://103.52.114.174:8000/todos
 
 ### Get Single Todo
 GET http://localhost:8000/todos/66b70e715330053b6ee0f566

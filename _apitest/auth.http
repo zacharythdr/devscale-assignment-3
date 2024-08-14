@@ -1,10 +1,10 @@
 ###
-GET http://localhost:8000/
-# GET http://103.52.114.174:8000/
+# GET http://localhost:8000/
+ GET http://103.52.114.174:8000/
 
 ###
-POST http://localhost:8000/register
-#POST http://103.52.114.174:8000/register
+#POST http://localhost:8000/register
+POST http://103.52.114.174:8000/register
 Content-Type: application/json
 
 {
@@ -15,8 +15,8 @@ Content-Type: application/json
 
 
 ### Login User
- POST http://localhost:8000/login
-#POST http://103.52.114.174:8000/login
+ #POST http://localhost:8000/login
+POST http://103.52.114.174:8000/login
 Content-Type: application/json
 
 {

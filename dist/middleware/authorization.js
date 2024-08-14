@@ -18,20 +18,23 @@ const auth_service_1 = __importDefault(require("../services/auth.service"));
 const authorization = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { accessToken, refreshToken } = req.cookies;
     if (!accessToken || !refreshToken) {
+        console.log("gaada akses atau refresh token!");
         return res.status(401).json({ message: "Unauthorized, Login required!" });
     }
     if (accessToken) {
         try {
-            jsonwebtoken_1.default.verify(accessToken, process.env.JWT_ACCESS_KEY);
+            jsonwebtoken_1.default.verify(accessToken, process.env.JWT_ACCESS_SECRET);
         }
         catch (error) {
             if (!refreshToken) {
+                console.log("refresh token ga valid!");
                 return res.status(401).json({ message: "Unauthorized" });
             }
             try {
-                jsonwebtoken_1.default.verify(refreshToken, process.env.JWT_REFRESH_KEY);
+                jsonwebtoken_1.default.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
                 const validRefTok = yield auth_service_1.default.getAuth(refreshToken);
                 if (!validRefTok) {
+                    console.log("reftok ga valid");
                     return res.status(401).json({ message: "Unauthorized" });
                 }
                 const payload = jsonwebtoken_1.default.decode(refreshToken);
@@ -44,6 +47,7 @@ const authorization = (req, res, next) => __awaiter(void 0, void 0, void 0, func
                 return res.cookie("accessToken", newAccessToken, { httpOnly: true });
             }
             catch (error) {
+                console.log(error);
                 return res.status(401).json({ message: "Unauthorized" });
             }
         }
